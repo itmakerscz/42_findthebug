@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find The Bug</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="game-title">Find The Bug</h1>
+    </header>
+
+    <main role="main" aria-labelledby="game-title">
+        <section aria-label="Game status">
+            <p id="score" aria-live="polite">Score: 0</p>
+            <p id="level" aria-live="polite">Level: easy</p>
+            <p id="question-counter" aria-live="polite">Question 1</p>
+            <p id="timer" aria-live="assertive">Time: 20</p>
+        </section>
+
+        <section aria-label="Level selection">
+            <div id="level-select" role="radiogroup" aria-label="Select difficulty">
+                <button role="radio" aria-checked="true" data-level="easy">Easy</button>
+                <button role="radio" aria-checked="false" data-level="medium">Medium</button>
+                <button role="radio" aria-checked="false" data-level="hard">Hard</button>
+            </div>
+        </section>
+
+        <section aria-label="Code snippet">
+            <pre id="code-snippet" aria-live="polite"></pre>
+        </section>
+
+        <section aria-label="Controls">
+            <button id="btn-show-bug" aria-label="Show bug description">Show Bug (Enter)</button>
+            <button id="btn-next" aria-label="Next question">Next (ArrowRight)</button>
+        </section>
+
+        <section aria-label="Feedback">
+            <p id="feedback" aria-live="assertive"></p>
+        </section>
+    </main>
+
+    <section id="summary" aria-label="Summary" hidden>
+        <h2>Summary</h2>
+        <p id="summary-level"></p>
+        <p id="summary-questions"></p>
+        <p id="summary-score"></p>
+        <button id="summary-back" role="button">Back to Game</button>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>

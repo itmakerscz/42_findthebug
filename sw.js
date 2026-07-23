@@ -1,41 +1,21 @@
-var CACHE_NAME = 'find-the-bug-v1';
+var CACHE = "find-the-bug-v1";
 var ASSETS = [
-    '/',
-    '/index.html',
-    '/styles.css',
-    '/app.js',
-    '/manifest.json'
+    "/",
+    "/index.html",
+    "/styles.css",
+    "/app.js",
+    "/ui.js",
+    "/round.js",
+    "/manifest.json",
+    "/data/easy.json",
+    "/data/medium.json",
+    "/data/hard.json"
 ];
 
-self.addEventListener('install', function (event) {
-    event.waitUntil(
-        caches.open(CACHE_NAME).then(function (cache) {
-            return cache.addAll(ASSETS);
-        })
-    );
+self.addEventListener("install", e => {
+    e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
 });
 
-self.addEventListener('activate', function (event) {
-    event.waitUntil(
-        caches.keys().then(function (keys) {
-            return Promise.all(
-                keys.filter(function (k) {
-                    return k !== CACHE_NAME;
-                }).map(function (k) {
-                    return caches.delete(k);
-                })
-            );
-        })
-    );
-});
-
-self.addEventListener('fetch', function (event) {
-    event.respondWith(
-        caches.match(event.request).then(function (res) {
-            if (res) {
-                return res;
-            }
-            return fetch(event.request);
-        })
-    );
+self.addEventListener("fetch", e => {
+    e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
 });

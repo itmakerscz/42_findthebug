@@ -1,0 +1,290 @@
+[
+    {
+        "code": "void\tft_putnbr(int n)\n{\n\tchar c;\n\tif (n < 0)\n\t{\n\t\twrite(1, \"-\", 1);\n\t\tn = -n;\n\t}\n\tc = n % 10;\n\twrite(1, &c, 1);\n}",
+        "answers": [
+            "Digit not converted to ASCII",
+            "INT_MIN cannot be negated",
+            "Wrong file descriptor"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "void\tft_putnbr(int n)\n{\n\tif (n < 0)\n\t{\n\t\tn = -n;\n\t}\n\twrite(1, &n, 1);\n}",
+        "answers": [
+            "Writes raw int bytes",
+            "INT_MIN cannot be negated",
+            "Missing braces"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "void\tft_putnbr(int n)\n{\n\tchar c;\n\tc = n;\n\twrite(1, &c, 1);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Does not convert number to digits",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "void\tft_putnbr_base(int n, char *b)\n{\n\tint len;\n\tlen = 0;\n\twhile (b[len])\n\t\tlen++;\n\twrite(1, &b[n], 1);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Does not convert number to base",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "void\tft_putnbr_base(int n, char *b)\n{\n\twrite(1, b, 1);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Writes first base char only",
+            "Missing braces"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "void\tft_putnbr_base(int n, char *b)\n{\n\tif (n < 0)\n\t{\n\t\tn = -n;\n\t}\n\twrite(1, &n, 1);\n}",
+        "answers": [
+            "Writes raw int",
+            "INT_MIN cannot be negated",
+            "Wrong pointer"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_atoi(char *s)\n{\n\tint i;\n\tint res;\n\ti = 0;\n\tres = 0;\n\twhile (s[i])\n\t{\n\t\tres = res * 10 + s[i];\n\t\ti++;\n\t}\n\treturn (res);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Uses raw ASCII instead of digit",
+            "Missing braces"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_atoi(char *s)\n{\n\tint i;\n\tint res;\n\tint sign;\n\ti = 0;\n\tres = 0;\n\tsign = 1;\n\tif (s[i] == '-')\n\t\tsign = sign * sign;\n\treturn (res);\n}",
+        "answers": [
+            "Ignores digits",
+            "Sign logic wrong",
+            "Wrong pointer"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_atoi(char *s)\n{\n\tint i;\n\ti = 0;\n\treturn (s[i] * 10);\n}",
+        "answers": [
+            "Ignores rest of string",
+            "Uses ASCII directly",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_atoi_base(char *s, char *b)\n{\n\tint i;\n\ti = 0;\n\treturn (s[i] - '0');\n}",
+        "answers": [
+            "Missing braces",
+            "Wrong digit mapping for base",
+            "Wrong return type"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_atoi_base(char *s, char *b)\n{\n\tint i;\n\tint res;\n\ti = 0;\n\tres = 0;\n\twhile (s[i])\n\t{\n\t\tres = res + (s[i] - '0');\n\t\ti++;\n\t}\n\treturn (res);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Does not multiply by base length",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_atoi_base(char *s, char *b)\n{\n\treturn (1);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Always returns 1",
+            "Missing braces"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "char\t*ft_strncpy(char *d, char *s, unsigned int n)\n{\n\tunsigned int i;\n\ti = 0;\n\twhile (i < n)\n\t{\n\t\td[i] = s[i] + 1;\n\t\ti++;\n\t}\n\treturn (d);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Adds 1 to every character",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "char\t*ft_strncpy(char *d, char *s, unsigned int n)\n{\n\tunsigned int i;\n\ti = 1;\n\twhile (i < n)\n\t{\n\t\td[i] = s[i];\n\t\ti++;\n\t}\n\treturn (d);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Starts copying at index 1",
+            "Missing braces"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "char\t*ft_strncpy(char *d, char *s, unsigned int n)\n{\n\tunsigned int i;\n\ti = 0;\n\td[i] = '\\0';\n\treturn (d);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Copies nothing",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "char\t*ft_strcpy(char *d, char *s)\n{\n\tint i;\n\ti = 0;\n\td[i] = s[i] + 5;\n\treturn (d);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Adds 5 to character",
+            "Copies only one char"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "char\t*ft_strcpy(char *d, char *s)\n{\n\tint i;\n\ti = 0;\n\twhile (s[i])\n\t{\n\t\td[i] = s[i] * 2;\n\t\ti++;\n\t}\n\td[i] = '\\0';\n\treturn (d);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Multiplies ASCII values",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_strcmp(char *a, char *b)\n{\n\tint i;\n\ti = 0;\n\treturn (a[i] * b[i]);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Multiplies ASCII values",
+            "Does not compare strings"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_strcmp(char *a, char *b)\n{\n\tint i;\n\ti = 0;\n\twhile (a[i] && b[i])\n\t{\n\t\tif (a[i] != b[i])\n\t\t\treturn (1);\n\t\ti++;\n\t}\n\treturn (1);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Always returns 1",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_strcmp(char *a, char *b)\n{\n\treturn (a[0] - b[0]);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Compares only first character",
+            "Missing braces"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_strlen(char *s)\n{\n\tint i;\n\ti = 0;\n\twhile (s[i])\n\t{\n\t\ti = i + 3;\n\t}\n\treturn (i);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Skips characters (i += 3)",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_strlen(char *s)\n{\n\tint i;\n\ti = 0;\n\twhile (s[i])\n\t{\n\t\ti--;\n\t}\n\treturn (i);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Decrements i → infinite loop",
+            "Missing braces"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "void\tft_putstr(char *s)\n{\n\twhile (*s)\n\t{\n\t\twrite(1, s, 10);\n\t\ts++;\n\t}\n}",
+        "answers": [
+            "Wrong pointer",
+            "Writes 10 bytes instead of 1",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "void\tft_putstr(char *s)\n{\n\twrite(1, s, 0);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Writes 0 bytes",
+            "Missing braces"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "char\t*ft_strcat(char *d, char *s)\n{\n\tint i;\n\ti = 0;\n\twhile (d[i])\n\t\ti++;\n\td[i] = s[i];\n\treturn (d);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Uses same index for both strings",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "char\t*ft_strcat(char *d, char *s)\n{\n\tint i;\n\ti = 0;\n\td[0] = s[0];\n\treturn (d);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Does not append",
+            "Missing braces"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "char\t*ft_strncat(char *d, char *s, unsigned int n)\n{\n\tunsigned int i;\n\ti = 0;\n\twhile (i < n)\n\t{\n\t\td[i] = s[i] + 1;\n\t\ti++;\n\t}\n\treturn (d);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Adds 1 to ASCII",
+            "Does not append to end of d"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "char\t*ft_strstr(char *h, char *n)\n{\n\tint i;\n\ti = 0;\n\twhile (h[i])\n\t{\n\t\tif (h[i] == n[i])\n\t\t\treturn (h);\n\t\ti++;\n\t}\n\treturn (0);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Compares wrong indices",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "char\t*ft_strstr(char *h, char *n)\n{\n\treturn (h + 100);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Returns invalid pointer",
+            "Missing braces"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_str_is_alpha(char *s)\n{\n\tint i;\n\ti = 0;\n\twhile (s[i])\n\t{\n\t\tif (s[i] < 'A')\n\t\t\treturn (1);\n\t\ti++;\n\t}\n\treturn (0);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Logic reversed",
+            "Does not check lowercase"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_str_is_numeric(char *s)\n{\n\tint i;\n\ti = 0;\n\twhile (s[i])\n\t{\n\t\tif (s[i] > '9')\n\t\t\treturn (1);\n\t\ti++;\n\t}\n\treturn (0);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Logic reversed",
+            "Missing semicolon"
+        ],
+        "correct": 1
+    },
+    {
+        "code": "int\tft_str_is_printable(char *s)\n{\n\tint i;\n\ti = 0;\n\twhile (s[i])\n\t{\n\t\tif (s[i] < 32 || s[i] > 200)\n\t\t\treturn (0);\n\t\ti++;\n\t}\n\treturn (1);\n}",
+        "answers": [
+            "Wrong pointer",
+            "Upper bound 200 is invalid",
+            "Missing braces"
+        ],
+        "correct": 1
+    }
+]

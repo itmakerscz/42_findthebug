@@ -1014,6 +1014,18 @@ levelButtons.forEach(function (btn) {
     });
 });
 
+function nextQuestion() {
+    roundIndex = roundIndex + 1;
+
+    if (roundIndex >= ROUND_SIZE) {
+        showSummary();
+        return;
+    }
+
+    renderQuestion();
+}
+
+
 btnNext.addEventListener('click', function () {
     var len = levels[currentLevel].length;
     if (currentIndex + 1 >= len) {
